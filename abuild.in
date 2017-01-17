@@ -1334,7 +1334,8 @@ create_apks() {
 		local subpkgname=$name
 		local subpkgarch=$(pkginfo_val arch $file)
 
-		trace_apk_deps "$name" "$dir" "$subpkgarch" || return 1
+		# Do not break on dependency @brenohl
+		trace_apk_deps "$name" "$dir" "$subpkgarch" ##|| return 1
 		msg "Package size: ${size}"
 		msg "Compressing data..."
 		(
